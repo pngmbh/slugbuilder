@@ -1,0 +1,13 @@
+version: 2
+jobs:
+  build:
+    machine:
+      docker_layer_caching: true
+    steps:
+      - checkout
+      - run:
+          name: Building local image
+          command: make docker-build
+      - run:
+          name: Running tests
+          command: make test
